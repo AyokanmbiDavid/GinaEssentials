@@ -1,0 +1,250 @@
+.searchit{
+        margin-top: 6rem;
+
+        .head{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            input{
+                border-radius: 100px;
+                padding: 0.5rem 2rem;
+                font-size: 0.8rem;
+                width: 50%;
+                font-weight: 700;
+                letter-spacing: 1.08px;
+                border: 1px solid  #198754;
+                color:  #198754;
+            }
+    
+            input::placeholder{
+                color: #259a63;
+            }
+        }
+
+        .grid{
+            margin-top: 1rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr!important;
+            gap: 0.5rem;
+            width: 100%;
+
+            .card{
+                border: none;
+                padding: 0.5rem;
+                text-decoration: none;
+                transition: 200ms ease-in-out;
+                width: 15rem;
+                margin: auto;
+
+                img{
+                    border-radius: 5px;
+                    height: 170px;
+                    object-fit: cover;
+                }
+
+                .title{
+                    font-weight: 700;
+                    letter-spacing: 1.08px;
+                    margin-top: 1rem;
+                    margin-left: 0.5rem;
+                    color:#19814a;
+                    font-size: 1.3rem;
+                }
+
+                .prices{
+                    display: flex;
+                    justify-content: space-between;
+                    width: 60%;
+                    margin-left: 0.5rem;
+                    align-items: center;
+
+                    .price{
+                        font-size: 1.2rem;
+                    }
+
+                    .formerPrice{
+                        border-radius: 50px;
+                        background-color: gray;
+                        color: white;
+                        padding: 0.2rem;
+                        text-decoration: line-through;
+                        font-size: 0.8rem;
+                    }
+                }
+
+                button{
+                    margin: auto;
+                    border-radius: 100px;
+                    border: 1px solid #19814a;
+                    color: #19814a;
+                    margin-top: 0.5rem;
+                    font-weight: 600;
+                    letter-spacing: 1.1px;
+                    font-size: 0.7rem;
+                }
+
+                button:hover{
+                    background-color: #19814a;
+                    color: white;
+                }
+            }
+
+            .card:hover{
+                padding: 0.2rem;
+            }
+        }
+
+        .error{
+            text-align: center;
+            color: #dc3545;
+            width: 100%;
+        }
+
+        .category{
+            display: flex;
+            justify-content: space-evenly;
+            margin: 1rem 0;
+
+            .cat{
+                padding: 0.5rem 1rem;
+                border: 1px solid #198754;
+                border-radius: 50px;
+                color: #198754;
+                font-weight: 600;
+                letter-spacing: 1.07px;
+                font-size: 0.7rem !important;
+            }
+
+            .cate{
+                background-color: #198754;
+                color: white;
+            }
+        }
+}
+
+@media (max-width: 900px) {
+    .searchit{
+        margin-top: 6rem;
+
+        .head{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            input{
+                border-radius: 100px;
+                padding: 0.5rem 2rem;
+                font-size: 0.8rem;
+                width: 90%;
+                font-weight: 700;
+                letter-spacing: 1.08px;
+                border: 1px solid  #198754;
+                color:  #198754;
+            }
+    
+            input::placeholder{
+                color: #259a63;
+            }
+        }
+
+        .grid{
+            margin-top: 1rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 0.5rem;
+            width: 100%;
+
+            .card{
+                border: none;
+                padding: 0.5rem;
+                text-decoration: none;
+                transition: 200ms ease-in-out;
+                width: 9rem;
+
+                img{
+                    border-radius: 5px;
+                    height: 170px;
+                    object-fit: cover;
+                }
+
+                .title{
+                    font-weight: 700;
+                    letter-spacing: 1.08px;
+                    margin-top: 1rem;
+                    margin-left: 0.5rem;
+                    color:#19814a;
+                    font-size: 1.3rem;
+                }
+
+                .prices{
+                    display: flex;
+                    justify-content: space-between;
+                    width: 60%;
+                    margin-left: 0.5rem;
+                    align-items: center;
+
+                    .price{
+                        font-size: 1.2rem;
+                    }
+
+                    .formerPrice{
+                        border-radius: 50px;
+                        background-color: gray;
+                        color: white;
+                        padding: 0.2rem;
+                        text-decoration: line-through;
+                        font-size: 0.8rem;
+                    }
+                }
+
+                button{
+                    margin: auto;
+                    border-radius: 100px;
+                    border: 1px solid #19814a;
+                    color: #19814a;
+                    margin-top: 0.5rem;
+                    font-weight: 600;
+                    letter-spacing: 1.1px;
+                    font-size: 0.7rem;
+                }
+
+                button:hover{
+                    background-color: #19814a;
+                    color: white;
+                }
+            }
+
+            .card:hover{
+                padding: 0.2rem;
+            }
+        }
+
+        .error{
+            text-align: center;
+            color: #dc3545;
+            width: 100%;
+        }
+
+        .category{
+            display: flex;
+            justify-content: space-evenly;
+            margin: 1rem 0;
+
+            .cat{
+                padding: 0.5rem 1rem;
+                border: 1px solid #198754;
+                border-radius: 50px;
+                color: #198754;
+                font-weight: 600;
+                letter-spacing: 1.07px;
+                font-size: 0.7rem !important;
+            }
+
+            .cate{
+                background-color: #198754;
+                color: white;
+            }
+        }
+    }
+}

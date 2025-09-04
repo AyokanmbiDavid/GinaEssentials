@@ -1,34 +1,33 @@
-import { Routes, Route } from 'react-router-dom';
-import './App.css';
-import Header from './User/Header/Header';
-import Footer from './User/Footer/Footer';
-import Home from './User/Home/Home';
-import Login from './User/Login/Login';
-import Register from './User/Register/Register';
-import { useNavigate } from 'react-router-dom';
-import Cart from './User/Cart/Cart';
-import ProductDetails from './User/ProductDetails/ProductDetails';
+import { useState, Suspense } from 'react';
+import './index.css'
+import Header from './Header/Header';
+import Home from './Home/Home';
+import Cart from './Cart/Cart';
+import { Routes,Route } from 'react-router-dom';
+import Login from './Login&Register/Login';
+import Register from './Login&Register/Register';
+import ProductDetails from './ProductDetails/ProductDetails';
+import ProductSearch from './ProductSearch/ProductSearch';
 
-function App() {
-  const Navigate = useNavigate()
-  const checkLog = JSON.stringify(localStorage.getItem('userLogin')) 
-  if(checkLog == true){
-    Navigate('/home')
-  } 
-
+function App () {
+  
   return (
     <>
+    <Suspense>
     <Header />
-      <Routes>
-        <Route path="/home" element={< Home/>} />
-        <Route path="/" element={< Login/>} />
-        <Route path="/register" element={<Register/>} />
-        <Route path="/cart" element={<Cart/>} />
-        <Route path="/details/:id" element={<ProductDetails/>} />
-      </Routes>
-      <Footer />
+    <Routes>
+      <Route path='/login' element={<Login />} />
+      <Route path='/register' element={<Register/>} />
+      <Route path='/' element={<Home />}/>
+        <Route path='/details' element={<ProductDetails />}>
+          <Route  path=':id' element={<ProductDetails/>}/>
+        </Route>
+      <Route path='/search' element={<ProductSearch />} />
+      <Route path='/cart' element={<Cart/>}/>
+    </Routes>
+    </Suspense>
     </>
-  );
+  )
 }
 
 export default App;
