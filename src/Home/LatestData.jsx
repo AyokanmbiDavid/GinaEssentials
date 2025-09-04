@@ -6,7 +6,7 @@ export const LatestData = [
         category: 'men',
         price : 10,
         desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit suscipit aperiam tenetur magni veniam nostrum est commodi optio illum at aspernatur, id laudantium quae veritatis odit voluptatum sit iusto ratione!',
-        img : '/src/assets/IMG-20250709-WA0036.jpg'
+        img : '/images/IMG-20250709-WA0036.jpg'
     },
 
     {
@@ -16,7 +16,7 @@ export const LatestData = [
         category: 'women',
         price : 10,
         desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit suscipit aperiam tenetur magni veniam nostrum est commodi optio illum at aspernatur, id laudantium quae veritatis odit voluptatum sit iusto ratione!',
-        img : '/src/assets/IMG-20250708-WA0013.jpg'
+        img : '/images/IMG-20250708-WA0013.jpg'
     },
 
     {
@@ -26,7 +26,7 @@ export const LatestData = [
         category: 'kids',
         price : 10,
         desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit suscipit aperiam tenetur magni veniam nostrum est commodi optio illum at aspernatur, id laudantium quae veritatis odit voluptatum sit iusto ratione!',
-        img : '/src/assets/IMG-20250709-WA0021.jpg'
+        img : '/images/IMG-20250709-WA0021.jpg'
     },
 
     {
@@ -36,7 +36,7 @@ export const LatestData = [
         category: 'men',
         price : 10,
         desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit suscipit aperiam tenetur magni veniam nostrum est commodi optio illum at aspernatur, id laudantium quae veritatis odit voluptatum sit iusto ratione!',
-        img : '/src/assets/IMG-20250709-WA0022.jpg'
+        img : '/images/IMG-20250709-WA0022.jpg'
     },
 
     {
@@ -46,7 +46,7 @@ export const LatestData = [
         category: 'women',
         price : 10,
         desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit suscipit aperiam tenetur magni veniam nostrum est commodi optio illum at aspernatur, id laudantium quae veritatis odit voluptatum sit iusto ratione!',
-        img : '/src/assets/IMG-20250709-WA0034.jpg'
+        img : '/images/IMG-20250709-WA0034.jpg'
     },
 
     {
@@ -56,7 +56,7 @@ export const LatestData = [
         category: 'kids',
         price : 10,
         desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit suscipit aperiam tenetur magni veniam nostrum est commodi optio illum at aspernatur, id laudantium quae veritatis odit voluptatum sit iusto ratione!',
-        img : '/src/assets/IMG-20250709-WA0035.jpg'
+        img : '/images/IMG-20250709-WA0035.jpg'
     },
     {
         id : 7,
@@ -65,7 +65,7 @@ export const LatestData = [
         category: 'kids',
         price : 10,
         desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit suscipit aperiam tenetur magni veniam nostrum est commodi optio illum at aspernatur, id laudantium quae veritatis odit voluptatum sit iusto ratione!',
-        img : '/src/assets/IMG-20250709-WA0036.jpg'
+        img : '/images/IMG-20250709-WA0036.jpg'
     },
     {
         id : 8,
@@ -74,7 +74,7 @@ export const LatestData = [
         category: 'kids',
         price : 10,
         desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit suscipit aperiam tenetur magni veniam nostrum est commodi optio illum at aspernatur, id laudantium quae veritatis odit voluptatum sit iusto ratione!',
-        img : '/src/assets/IMG-20250709-WA0037.jpg'
+        img : '/images/IMG-20250709-WA0037.jpg'
     },
     {
         id : 9,
@@ -83,7 +83,7 @@ export const LatestData = [
         category: 'kids',
         price : 10,
         desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit suscipit aperiam tenetur magni veniam nostrum est commodi optio illum at aspernatur, id laudantium quae veritatis odit voluptatum sit iusto ratione!',
-        img : '/src/assets/IMG-20250709-WA0038.jpg'
+        img : '/images/IMG-20250709-WA0038.jpg'
     },
     {
         id : 10,
@@ -92,6 +92,6 @@ export const LatestData = [
         category: 'kids',
         price : 10,
         desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit suscipit aperiam tenetur magni veniam nostrum est commodi optio illum at aspernatur, id laudantium quae veritatis odit voluptatum sit iusto ratione!',
-        img : '/src/assets/IMG-20250709-WA0039.jpg'
+        img : '/images/IMG-20250709-WA0039.jpg'
     },
 ]
