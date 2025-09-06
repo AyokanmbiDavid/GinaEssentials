@@ -3,6 +3,7 @@ import './ProductSearch.css'
 import { Link } from 'react-router-dom'
 import Data from '../Data'
 import { Suspense } from 'react'
+import Header from '../Header/Header'
 
 const ProductSearch = () => {
     const [searchValue, setSearchValue] = useState('')
@@ -20,6 +21,7 @@ const ProductSearch = () => {
 
   return (
     <>
+    <Header/>
         <div className="searchit">
             <div className="container">
                 {/* head */}

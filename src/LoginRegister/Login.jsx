@@ -1,92 +1,95 @@
-import React, {useState, useEffect, Suspense} from 'react'
-import './LoginRegister.css'
-import { Link} from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import './LoginRegister.css';
+import { useNavigate, Link } from 'react-router-dom';
 
-const Login = (props) => {
-      const [email, setEmail] = useState('')
-      const [password, setPassword] = useState('')
-      const [Ispassword, setIsPassword] = useState(true)
-      const [loginInfo, setLoginInfo] = useState()
-      const navigate = useNavigate()
+const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
-      useEffect(() => {
-        const LoginInfo = JSON.parse(localStorage.getItem('GinaEssentialsLogin')) || [{login: false}]
-        setLoginInfo(LoginInfo.login)
-      }, [])
+  // Redirect if already logged in
+  useEffect(() => {
+    const loginStatus = JSON.parse(localStorage.getItem('GinaEssentialsLogin'));
+    if (loginStatus?.login === true) {
+      navigate('/home');
+    }
+  }, [navigate]);
 
-      useEffect(() => {
-        
-        if(loginInfo == 'true' || loginInfo == true){
-            navigate('/')
-        }
-      }, [loginInfo])
-      
-      
+  const handleLogin = () => {
+    if (!email || !password) {
+      alert('Please fill all fields');
+      return;
+    }
 
-      const loginLogic  = () => {
-          if(email != '' && password != ''){
-            const userData = JSON.parse(localStorage.getItem('GinaEssentials'))
-            const findEmail = userData.find(e => e.email == email && e.password == password )
-            
-            if(findEmail){
-                const Login = {
-                    login: true
-                }
-                setLoginInfo('true')
-                localStorage.setItem('GinaEssentialsLogin', JSON.stringify(Login))
-                alert('login sucessful')
-               
+    const users = JSON.parse(localStorage.getItem('GinaEssentials')) || [];
+    const matchedUser = users.find(
+      (user) => user.email === email && user.password === password
+    );
 
-            } else{
-                alert('email not found')
-            }
-          }
-           else{
-            alert('please fill all field')
-           }
-      }     
-      
+    if (matchedUser) {
+      localStorage.setItem('GinaEssentialsLogin', JSON.stringify({ login: true }));
+      alert('Login successful');
+      navigate('/home');
+    } else {
+      alert('Invalid email or password');
+    }
+  };
 
   return (
-    <>
-        <div className="login">
-            <div className="container">
-               <Suspense>
-               <div className="login-body">
-                    <div className="head">
-                        <h1>Login</h1>
-                        <hr />
-                    </div>
+    <div className="login">
+      <div className="container">
+        <div className="login-body">
+          <div className="head">
+            <h1>Login</h1>
+            <hr />
+          </div>
 
-                    <div className="login-form">
-                        <div className="input-groups">
-                            {/* <label htmlFor="">Email</label> */}
-                            <input type="email" className="form-control" placeholder='Email..' onChange={(e) => setEmail(e.target.value)}/>
-                        </div>
-
-                        <div className="input-groups">
-                            {/* <label htmlFor="">Password</label> */}
-                            <div className="d-flex pass">
-                            <input type={Ispassword ? 'password': 'text'} className="form-control" placeholder='Password..' style={{width: '300px'}} onChange={(e) => setPassword(e.target.value)}/>
-                            <i className={Ispassword ? 'bi bi-eye-slash' : 'bi bi-eye'} style={{fontSize: '2.2rem'}} onClick={() => setIsPassword(!Ispassword)}></i>
-                            </div>
-                        </div>
-
-                        <div className="submit">
-                            <Link  className="btn" onClick={() => loginLogic()}>Login</Link>
-                        </div>
-
-                        <div className="refer text-danger ">
-                            <h3>Dont have an account? <Link to={'/register'}>Register</Link></h3>
-                        </div>
-                    </div>
-                </div>
-               </Suspense>
+          <div className="login-form">
+            <div className="input-groups">
+              <input
+                type="email"
+                className="form-control"
+                placeholder="Email..."
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
-        </div>
-    </>
-  )
-}
 
-export default Login
+            <div className="input-groups">
+              <div className="d-flex pass">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  className="form-control"
+                  placeholder="Password..."
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  style={{ width: '300px' }}
+                />
+                <i
+                  className={showPassword ? 'bi bi-eye' : 'bi bi-eye-slash'}
+                  style={{ fontSize: '2.2rem', cursor: 'pointer' }}
+                  onClick={() => setShowPassword(!showPassword)}
+                ></i>
+              </div>
+            </div>
+
+            <div className="submit">
+              <button className="btn" onClick={handleLogin}>
+                Login
+              </button>
+            </div>
+
+            <div className="refer text-danger">
+              <h3>
+                Don't have an account? <Link to="/register">Register</Link>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Login;

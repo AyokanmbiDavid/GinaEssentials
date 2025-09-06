@@ -43,7 +43,7 @@ const Register = (props) => {
                 localStorage.setItem('GinaEssentialsLogin', JSON.stringify(Login))
                 localStorage.setItem('GinaEssentials', JSON.stringify(newData))
                 alert(`registered ${email} successfully`)
-                navigate('/')
+                navigate('/home')
             }
     
         } else{
@@ -95,7 +95,7 @@ const Register = (props) => {
                         </div>
 
                         <div className="refer text-danger ">
-                            <h3>Already have an account? <Link to="/login" >Login</Link></h3>
+                            <h3>Already have an account? <Link to="/" >Login</Link></h3>
                         </div>
                     </div>
                 </div>

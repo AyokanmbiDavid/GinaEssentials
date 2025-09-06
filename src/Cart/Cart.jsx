@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Suspense } from 'react'
 import './Cart.css'
 import { Link } from 'react-router-dom'
+import Header from '../Header/Header'
 
 const Cart = () => {
     const [cart, setCart] = useState([])
@@ -32,6 +33,7 @@ const Cart = () => {
 
   return (
     <>
+    <Header/>
        <Suspense>
        <div className="cart">
             <div className="container">
@@ -50,7 +52,7 @@ const Cart = () => {
                 <div className="grid">
                     {cart.map((item) => (
                         <>
-                            <div className="card">
+                            <Link to={`/details/${item.id}`} className="card">
                                 <div className="top"><button className='.btn' onClick={() => deleteItem(item.id)}>delete x</button></div>
                                 <div className="card-body">
                                 <div className="right">
@@ -61,9 +63,10 @@ const Cart = () => {
                                     <h1 className="title">{item.title}</h1>
                                     <h1 className='price'>${item.price}</h1>
                                     <h3 className='quantity'>Quantity :{item.quantity}</h3>
+                                    <h3 className='color'>color: {item.color}</h3>
                                 </div>
                                 </div>
-                            </div>
+                            </Link>
                             </>
                     ))}
                 </div>

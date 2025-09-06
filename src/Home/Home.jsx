@@ -9,6 +9,8 @@ import img4 from './IMG-20250712-WA0124.jpg'
 import img5 from './IMG-20250713-WA0088.jpg'
 import { LatestData } from './LatestData'
 import { useNavigate } from 'react-router-dom'
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
 
 const Home = (props) => {
     const navigate = useNavigate()
@@ -22,12 +24,13 @@ const Home = (props) => {
             login: false
         }
         localStorage.setItem('GinaEssentialsLogin', JSON.stringify(Login))
-        navigate('/login')
+        navigate('/')
     }
     
 
   return (
     <>
+    <Header/>
         <div className="home">
             <div className="container">
                <Suspense>
@@ -35,7 +38,7 @@ const Home = (props) => {
                     {!hasLogin && <>
                         <h3>Seems you have not logged in?</h3>
                     <div className="but">
-                            <Link to={'/login'}> <button className="btn">Login</button></Link>
+                            <Link to={'/'}> <button className="btn">Login</button></Link>
                         <Link to={'/register'}> <button className="btn signup">SignUp</button></Link>     
                       </div>
                     </>}
@@ -121,6 +124,7 @@ const Home = (props) => {
                </Suspense>
             </div>
         </div>
+        <Footer/>
     </>
   )
 }

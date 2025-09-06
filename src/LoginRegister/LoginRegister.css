@@ -1,10 +1,83 @@
 .login, .register{
+    margin-top: 3rem;
 
+    .head{
+        
+        h1{
+            border-radius: 100px;
+            padding: 0.5rem 1rem;
+            margin: 0;
+            color: #19814a;
+            font-weight: 700;
+            letter-spacing: 1.1px;
+            font-size: 1em;
+        }
+    }
+
+    .input-groups{
+        margin-top: 1rem;
+    }
+
+    .pass {
+        display: flex;
+        justify-content: space-evenly;
+
+        input{
+            width: 50% !important;
+        }
+
+        .bi{
+            font-size: 1.5rem !important;
+        }
+    
+    }
+
+    input{
+        border-radius: 40px;
+        padding: 0.7rem 2rem;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 1.02px;
+        margin-top: 1rem;
+        background-color: #c5f8ddfd;
+        width: 50%;
+        border: none;
+        margin: auto;
+    }
+
+    .submit{
+        text-align: center;
+        margin-top: 2rem;
+
+        .btn{
+            padding: 0.3rem 2rem;
+            font-weight: 700;
+            letter-spacing: 1.07px;
+            font-size: 1rem;
+            border: 1px solid #19814a;
+            border-radius: 100px;
+            color: #19814a;
+        }
+
+        .btn:hover{
+            background-color: #19814a;
+            color: white;
+        }
+    }
+
+    .refer{
+        text-align: center;
+
+        h3{
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+    }
 }
 
 @media (max-width: 900px) {
     .login, .register{
-        margin-top: 8rem;
+        margin-top: 3rem;
 
         .head{
             

@@ -55,9 +55,12 @@
             border: none;
             margin-bottom: 1rem;
             border-radius: 20px;
-            width: 100%;
+            width: 80%;
+            margin: auto;
             background-color: #edfbff;
             padding: 0.4rem 0;
+            transition: 0.3s;
+            text-decoration: none;
 
                 .top{
                 display: flex;
@@ -120,8 +123,16 @@
                         font-size: 1.1rem;
                         color: #19814a;
                     }
+
+                    .color{
+                        color: var(--secondary);
+                    }
                 }
             }
+        }
+
+        .card:hover{
+            scale: 1.02;
         }
     }
 
