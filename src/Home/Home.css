@@ -1,5 +1,5 @@
 .home{
-    margin-top: 6rem;
+    padding-top: 6rem;
 
     .login-info{
         display: flex;
@@ -17,8 +17,8 @@
         }
 
         button{
-            border-radius: 100px;
-            padding: 0.6rem 2rem;
+            border-radius: 10px;
+            padding: 0.8rem 2rem;
             border: 1px solid #19814a;
             color: #19814a;
             letter-spacing: 1.06px;
@@ -72,79 +72,9 @@
 
     .latest{
         .head{
-            font-size: 1.4rem;
-            margin-top: 2rem;
-        }
-
-        .grid{
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr!important;
-            gap: 0.5rem;
-
-            .card{
-                border: none;
-                padding: 0.5rem;
-                text-decoration: none;
-                transition: 200ms ease-in-out;
-                width: 15rem;
-                margin: auto;
-
-                img{
-                    border-radius: 5px;
-                    height: 170px;
-                    object-fit: cover;
-                }
-
-                .title{
-                    font-weight: 700;
-                    letter-spacing: 1.08px;
-                    margin-top: 1rem;
-                    margin-left: 0.5rem;
-                    color:#19814a;
-                    font-size: 1.5rem;
-                }
-
-                .prices{
-                    display: flex;
-                    justify-content: space-between;
-                    width: 60%;
-                    margin-left: 0.5rem;
-                    align-items: center;
-
-                    .price{
-                        font-size: 1.2rem;
-                    }
-
-                    .formerPrice{
-                        border-radius: 50px;
-                        background-color: gray;
-                        color: white;
-                        padding: 0.1rem;
-                        font-size: 1rem;
-                        text-decoration: line-through;
-                    }
-                }
-
-                button{
-                    margin: auto;
-                    border-radius: 100px;
-                    border: 1px solid #19814a;
-                    color: #19814a;
-                    margin-top: 0.5rem;
-                    font-weight: 600;
-                    font-size: 0.7rem;
-                    letter-spacing: 1.1px;
-                }
-
-                button:hover{
-                    background-color: #19814a;
-                    color: white;
-                }
-            }
-
-            .card:hover{
-                scale: 1.02;
-            }
+            font-size: 1.5rem;
+            margin: 2rem 3rem;
+            color: #19814a;
         }
     }
 
@@ -164,61 +94,36 @@
         }
 
         input{
-            border-radius: 5px;
-            border: 1px solid lightgreen;
-            padding: 0.5rem 2rem;
-            background-color: none;
+           margin: auto;
+           width: min(400px, 80%);
         }
 
         button{
-            border: none;
             margin-top: 1rem;
-            border-radius: 100px;
-            padding: 0.5rem 2rem;
             background-color: #19814a;
             color: white;
-            font-weight: 600;
-            letter-spacing: 1.06px;
         }
     }
 }
 
+.dark{
+    background-color: var(--dark);
+
+    .card{
+        background-color: var(--dark) !important;
+        color: var(--light) !important;
+
+        .title{
+            color: var(--light);
+        }
+    }
+}
 @media (max-width: 900px) {
  .home{
     
     .login-info{
-        display: flex;
-        justify-content: end;
-        align-items: center;
-        margin: 1rem 0 ;
-        text-align: center;
-        flex-direction: column;
-
-        h3{
-            font-size: 0.7rem;
-            color:  #dc3545;
-            font-weight: 600;
-            letter-spacing: 1.08px;
-        }
-
         button{
-            border-radius: 100px;
             padding: 0.6rem 2rem;
-            border: 1px solid #19814a;
-            color: #19814a;
-            letter-spacing: 1.06px;
-            font-weight: 600;
-            font-size: 0.7rem;
-        }
-
-        .signup{
-            background-color: #19814a;
-            color: white;
-        }
-
-        button:hover{
-            background: #19814a;
-            color: white;
         }
     }
 
@@ -227,127 +132,32 @@
         img{
             width: 300px !important;
             height: 20rem;
-            border-radius: 10px;
-            margin: auto;
         }
     }
 
     .search{
-        display: flex;
-        justify-content: end;
-        align-items: center;
-        margin-top: 1rem;
-        text-decoration: none;
 
         input{
-            border-radius: 100px;
-            padding: 0.5rem 2rem;
+            border-radius: 10px;
+            padding: 1rem 2rem;
             font-size: 0.7rem;
             font-weight: 700;
             letter-spacing: 1.08px;
             border: 1px solid  #198754;
             color:  #198754;
+            width: min(600px, 90%);
         }
 
-        input::placeholder{
-            color: #259a63;
-        }
     }
 
     .latest{
-
-        .grid{
-            display: grid;
-            grid-template-columns: 1fr 1fr !important;
-            gap: 0.5rem;
-
-            .card{
-                border: none;
-                padding: 0.5rem;
-                text-decoration: none;
-                transition: 200ms ease-in-out;
-                width: 9rem;
-
-                img{
-                    border-radius: 5px;
-                    height: 170px;
-                    object-fit: cover;
-                }
-
-                .title{
-                    font-weight: 700;
-                    letter-spacing: 1.08px;
-                    margin-top: 1rem;
-                    margin-left: 0.5rem;
-                    color:#19814a;
-                    font-size: 1.5rem;
-                }
-
-                .prices{
-                    display: flex;
-                    justify-content: space-between;
-                    width: 60%;
-                    margin-left: 0.5rem;
-                    align-items: center;
-
-                    .price{
-                        font-size: 1.2rem;
-                    }
-
-                    .formerPrice{
-                        border-radius: 50px;
-                        background-color: gray;
-                        color: white;
-                        padding: 0.1rem;
-                        font-size: 1rem;
-                        text-decoration: line-through;
-                    }
-                }
-
-                button{
-                    margin: auto;
-                    border-radius: 100px;
-                    border: 1px solid #19814a;
-                    color: #19814a;
-                    margin-top: 0.5rem;
-                    font-weight: 600;
-                    font-size: 0.7rem;
-                    letter-spacing: 1.1px;
-                }
-
-                button:hover{
-                    background-color: #19814a;
-                    color: white;
-                }
-            }
-
-            .card:hover{
-                padding: 0.2rem;
-            }
+        .head{
+            margin: 0.5rem 0;
         }
     }
 
     .subscribe{
-        margin-top: 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1rem;
 
-        h3{
-            text-align: center;
-            font-size: 1.3rem;
-            font-weight: 600;
-            letter-spacing: 1.05px;
-        }
-
-        input{
-            border-radius: 5px;
-            border: 1px solid lightgreen;
-            padding: 0.5rem 2rem;
-            background-color: none;
-        }
 
         button{
             border: none;
@@ -360,5 +170,9 @@
             letter-spacing: 1.06px;
         }
     }
+ }
+
+ .dark{
+    background-color: var(--dark);
  }
 }

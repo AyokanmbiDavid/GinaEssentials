@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Suspense } from 'react'
 import './Home.css'
 import { Link } from 'react-router-dom'
@@ -16,9 +16,22 @@ const Home = (props) => {
     const navigate = useNavigate()
     const LoginInfo = JSON.parse(localStorage.getItem('GinaEssentialsLogin')) || false
     const hasLogin = LoginInfo.login 
+    const [theme, setTheme] = useState('')
+    const [latest, setLatest] = useState([])
 
+    useEffect(() => {
+        const findTheme = JSON.parse(localStorage.getItem('GinaTheme'))
+        setTheme(findTheme)
+        localStorage.setItem('GinaLatest', JSON.stringify(LatestData))
+        const allLatest = JSON.parse(localStorage.getItem('GinaLatest')) || LatestData
+        setLatest(allLatest)
+    }, [])
+
+   setInterval(() => {
+      const findTheme = JSON.parse(localStorage.getItem('GinaTheme'))
+        setTheme(findTheme)
+   }, 200);
     
-
     const Logout = () => {
         const Login = {
             login: false
@@ -31,7 +44,7 @@ const Home = (props) => {
   return (
     <>
     <Header/>
-        <div className="home">
+        <div className={theme ? "home" :"home dark"}>
             <div className="container">
                <Suspense>
                <div className="login-info">
@@ -93,10 +106,9 @@ const Home = (props) => {
 
                 <div className="latest my-3 ">
                     <h1 className='fw-bold head'>Latest</h1>
-                    <hr className='w-50'/>
-
+                    
                    <div className="grid">
-                        {LatestData.map((item) => (
+                        {latest.map((item) => (
                             <>
                                   <Link to={`/details/${item.id}`} className="card">
                                             <img src={item.img} alt="" loading="lazy" />

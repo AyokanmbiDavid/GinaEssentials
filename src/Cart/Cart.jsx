@@ -7,10 +7,13 @@ import Header from '../Header/Header'
 const Cart = () => {
     const [cart, setCart] = useState([])
     const [totalPrice, setTotalPrice] = useState('9')
+    const [theme, setTheme] = useState('')
 
     useEffect(() => {
         const cart = JSON.parse(localStorage.getItem('GinaEssentialsCart')) || []
         setCart(cart)
+        const findTheme = JSON.parse(localStorage.getItem('GinaTheme')) || theme
+        setTheme(findTheme)
 
         for (let i = 0; i < cart.length; i++) {
            const Price = (cart[i].price).parseInt
@@ -20,6 +23,11 @@ const Cart = () => {
         console.log(totalPrice);
         
     }, [])
+
+     setInterval(() => {
+      const findTheme = JSON.parse(localStorage.getItem('GinaTheme'))
+        setTheme(findTheme)
+   }, 200);
 
     useEffect(() => {
         localStorage.setItem('GinaEssentialsCart', JSON.stringify(cart))
@@ -35,7 +43,7 @@ const Cart = () => {
     <>
     <Header/>
        <Suspense>
-       <div className="cart">
+       <div className={theme? "cart": "cart dark"}>
             <div className="container">
                 {/* head */}
                 <div className="head">
@@ -52,9 +60,9 @@ const Cart = () => {
                 <div className="grid">
                     {cart.map((item) => (
                         <>
-                            <Link to={`/details/${item.id}`} className="card">
+                            <div className="card">
                                 <div className="top"><button className='.btn' onClick={() => deleteItem(item.id)}>delete x</button></div>
-                                <div className="card-body">
+                                <Link to={`/details/${item.id}`}className="card-body">
                                 <div className="right">
                                     <img src={item.img} alt="" />
                                 </div>
@@ -65,8 +73,8 @@ const Cart = () => {
                                     <h3 className='quantity'>Quantity :{item.quantity}</h3>
                                     <h3 className='color'>color: {item.color}</h3>
                                 </div>
-                                </div>
-                            </Link>
+                                </Link>
+                            </div>
                             </>
                     ))}
                 </div>

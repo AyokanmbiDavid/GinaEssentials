@@ -7,15 +7,15 @@ const Register = (props) => {
     const [email,setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [userData, setUserData] = useState([])
-    const [confirmPass, setConfirm] = useState('')
     const [phoneNumber, setPhoneNumber] = useState(true)
-    const [Ispassword, setIsPassword] = useState('')
-    const loginit = props.loggedIn
+    const [theme, setTheme] = useState('')
     const navigate = useNavigate()
 
     useEffect(() => {
         const UserData = JSON.parse(localStorage.getItem('GinaEssentials')) || []
         setUserData(UserData)
+        const findTheme = JSON.parse(localStorage.getItem('GinaTheme')) || theme
+        setTheme(findTheme)
     }, [])
     
 
@@ -53,12 +53,11 @@ const Register = (props) => {
 
   return (
     <>
-        <div className="register">
+        <div className={theme ? "register" : "register dark"}>
             <div className="container">
                 <div className="register-body">
                 <div className="head">
                         <h1>Register</h1>
-                        <hr />
                     </div>
 
                     <div className="login-form">
@@ -69,21 +68,13 @@ const Register = (props) => {
 
                         <div className="input-groups">
                             {/* <label htmlFor="">Password</label> */}
-                            <div className="d-flex pass">
-                            <input type={Ispassword ? 'password': 'text'} className="form-control" placeholder='Password..' style={{width: '300px'}} />
-                            <i className={Ispassword ? 'bi bi-eye-slash' : 'bi bi-eye'} style={{fontSize: '2.2rem'}} onClick={() => setIsPassword(!Ispassword)}></i>
-                            </div>
-                            
+                            <input type='password' className="form-control" placeholder='Password..' />
                         </div>
 
                         <div className="input-groups">
                             {/* <label htmlFor="">Confirm Password</label> */}
-                            <div className="d-flex pass">
-                                <input type={confirmPass ? 'password' : 'text'} className="form-control" placeholder=' Confirm Password..' style={{width: '300px'}} onChange={(e) => setPassword(e.target.value)}/>
-                                <i className={confirmPass ? 'bi bi-eye-slash': 'bi bi-eye'} style={{fontSize: '2.2rem'}} onClick={() => setConfirm(!confirmPass)}></i>
-                            </div>
-                            
-                        </div>
+                                <input type='password' className="form-control" placeholder=' Confirm Password..' onChange={(e) => setPassword(e.target.value)}/>
+                         </div>
 
                         <div className="input-groups">
                             {/* <label htmlFor="">Phone number</label> */}

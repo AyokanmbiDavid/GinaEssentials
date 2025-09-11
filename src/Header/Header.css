@@ -2,13 +2,12 @@
     margin: 0;
     padding: 0;
     align-items: center;
-    
 
     .container{
         background-color: white;
         border-radius: 100px;
         margin-top: 1rem;
-        box-shadow: 0 2px 4px #d2d4d3;
+        box-shadow: 0 2px 4px #ececec;
     }
 
     .search{
@@ -20,9 +19,9 @@
         width: 30%;
 
         input{
-            border-radius: 100px;
+            border-radius: 10px;
             width: 100%;
-            padding: 0.5rem 2rem;
+            padding: 0.7rem 2rem;
             font-size: 0.7rem;
             font-weight: 700;
             letter-spacing: 1.08px;
@@ -41,8 +40,8 @@
         color: white;
         letter-spacing: 1.3px;
         margin: 0;
-        font-size: 0.7rem ;
-        padding: 0.5rem 1rem;
+        font-size: 0.8rem ;
+        padding: 0.7rem 1rem;
     }
 
     .mobile{
@@ -62,11 +61,19 @@
         }
     }
 
+    .mobile-sun{
+        display: none;
+    }
+
     ul{
         border-radius: 20px;
         margin-top: 1rem;
         transition: 200ms ease;
         margin-top: -2px;
+
+        .sun{
+            font-size: 1rem;
+        }
         
         li{
             padding: 0.2rem 1rem;
@@ -75,6 +82,9 @@
             font-size: 0.8rem;
             font-weight: 600;
             letter-spacing: 1.03px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
        li:hover{
@@ -90,42 +100,30 @@
 
 @media (max-width: 900px) {
     .navbar{
-        margin-top: 0.6rem;
         background: white;
         border-radius: 10px;
-        box-shadow: 0 2px 4px rgb(232, 231, 231);
 
         .container{
-            background-color: transparent !important;
+            background-color: transparent;
             box-shadow: none;
             border-radius: 100px;
         }
 
+        .mobile-sun{
+            display: flex;
+        }
+
+        .mobile-cart{display: block;}
         .search{display: none;}
         
         .navbar-brand{
             border-radius: 100px;
-            background-color: #19814a;
-            padding: 0.5rem 1rem;
-            color: white;
-            letter-spacing: 1.3px;
-            font-size: 0.7rem ;
+            padding: 0.5rem 0.3rem;
+            font-size: 0.8rem ;
         }
-
-        .mobile{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .mobile-cart{
-            display: block;
-            font-size: 1rem;
-
-            .text-warning{
-                
-            color: #19814a !important;
-            }
+        button{
+            font-size: 0.8rem !important;
+            padding: 5px 10px !important;
         }
 
         ul{
@@ -139,9 +137,25 @@
                 color:#19814a;
             }
 
+            .sun{
+                display: flex;
+            }
+
             .active{
                 color: rgb(188, 187, 187) !important;
             }
         }
     }
+
+    .dark{
+    background-color: var(--dark) !important;
+
+    input{
+        background-color: var(--dark-bg);
+    }
+
+    li, .nav-link{
+        color: white !important;
+    }
+}
 }

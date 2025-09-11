@@ -2,7 +2,6 @@ body {
   margin: 0;
   font-family: 'SanFa',sans-serif !important;
   user-select: none;
-  height: 100vh;
  }
 
 @font-face {
@@ -67,4 +66,208 @@ body::-webkit-scrollbar{
 
 input:focus{
   outline: none;
+}
+
+input{
+        border-radius: 10px;
+        width: 100%;
+        padding: 0.7rem 2rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 1.08px;
+        border: 1px solid  #198754;
+        color:  #198754;
+    }
+
+button{
+      border-radius: 10px !important;
+      padding: 0.8rem 2rem;
+      border: 1px solid #19814a;
+      color: #19814a;
+      letter-spacing: 1.06px;
+      font-weight: 600;
+      font-size: 0.7rem;
+  }
+
+ input::placeholder{
+      color: #259a63;
+  }
+
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr!important;
+    gap: 0.5rem;
+
+    .card{
+        border: none;
+        padding: 0.5rem;
+        text-decoration: none;
+        transition: 200ms ease-in-out;
+        width: 15rem;
+        margin: auto;
+
+        img{
+            border-radius: 5px;
+            height: 170px;
+            object-fit: cover;
+        }
+
+        .title{
+            font-weight: 700;
+            letter-spacing: 1.08px;
+            margin-top: 1rem;
+            margin-left: 0.5rem;
+            color:#19814a;
+            font-size: 1.5rem;
+        }
+
+        .prices{
+            display: flex;
+            margin-left: 0.5rem;
+            align-items: center;
+
+            .price{
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+
+            .formerPrice{
+                border-radius: 50px;
+                background-color: rgb(201, 201, 201);
+                color: white;
+                padding: 0.3rem;
+                margin-left: 1rem;
+                font-size: 1rem;
+                text-decoration: line-through;
+            }
+        }
+
+        button{
+            margin: auto;
+            border-radius: 10px;
+            border: 1px solid #19814a;
+            color: #19814a;
+            margin-top: 0.5rem;
+            font-weight: 600;
+            font-size: 0.7rem;
+            letter-spacing: 1.1px;
+            padding: 0.7rem 2rem;
+        }
+
+        button:hover{
+            background-color: #19814a;
+            color: white;
+        }
+    }
+
+    .card:hover{
+        scale: 1.1;
+        z-index: 1;
+    }
+}
+
+@media (max-width: 900px) {
+
+.grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.5rem;
+
+        .card{
+            border: none;
+            padding: 0.5rem;
+            text-decoration: none;
+            transition: 200ms ease-in-out;
+            width: 9rem;
+
+            img{
+                border-radius: 5px;
+                height: 170px;
+                object-fit: cover;
+            }
+
+            .title{
+                font-weight: 700;
+                letter-spacing: 1.08px;
+                margin-top: 1rem;
+                margin-left: 0.5rem;
+                color:#19814a;
+                font-size: 1.5rem;
+            }
+
+            .prices{
+                display: flex;
+                justify-content: space-between;
+                width: 60%;
+                margin-left: 0.5rem;
+                align-items: center;
+
+                .price{
+                    font-size: 1.2rem;
+                }
+
+                .formerPrice{
+                    border-radius: 50px;
+                    background-color: gray;
+                    color: white;
+                    padding: 0.1rem;
+                    font-size: 1rem;
+                    text-decoration: line-through;
+                }
+            }
+
+    button{
+        margin: auto;
+        border-radius: 10px;
+        border: 1px solid #19814a;
+        color: #19814a;
+        margin-top: 0.5rem;
+        font-weight: 600;
+        font-size: 0.7rem;
+        letter-spacing: 1.1px;
+        padding: 0.7rem 1.6rem;
+    }
+
+    button:hover{
+        background-color: #19814a;
+        color: white;
+    }
+}
+
+.card:hover{
+    padding: 0.2rem;
+    scale: 1;
+}
+    }
+
+    
+}
+
+.dark{
+    background-color: var(--dark) !important;
+
+    input{
+        background-color: var(--dark-bg);
+    }
+
+    li, .nav-link{
+        color: white !important;
+    }
+
+    .navbar-toggler{
+        background:  var(--live-green) !important;
+    }
+
+     .colors{
+        color: white;
+    }
+
+    .title{color: white !important;}
+
+    .desc{color: var(--dark) !important;}
+
+    .mobile-sun{
+        color: var(--live-green);
+    }
 }

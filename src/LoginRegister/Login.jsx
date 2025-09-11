@@ -5,17 +5,24 @@ import { useNavigate, Link } from 'react-router-dom';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const [theme, setTheme] = useState('')
 
   // Redirect if already logged in
   useEffect(() => {
     const loginStatus = JSON.parse(localStorage.getItem('GinaEssentialsLogin'));
+        const findTheme = JSON.parse(localStorage.getItem('GinaTheme')) || theme
+        setTheme(findTheme)
     if (loginStatus?.login === true) {
       navigate('/home');
     }
   }, [navigate]);
 
+   setInterval(() => {
+      const findTheme = JSON.parse(localStorage.getItem('GinaTheme'))
+        setTheme(findTheme)
+   }, 200);
+    
   const handleLogin = () => {
     if (!email || !password) {
       alert('Please fill all fields');
@@ -37,12 +44,11 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
+    <div className={theme ? "login" : "login dark"}>
       <div className="container">
         <div className="login-body">
           <div className="head">
             <h1>Login</h1>
-            <hr />
           </div>
 
           <div className="login-form">
@@ -57,21 +63,13 @@ const Login = () => {
             </div>
 
             <div className="input-groups">
-              <div className="d-flex pass">
                 <input
-                  type={showPassword ? 'text' : 'password'}
+                  type='password'
                   className="form-control"
                   placeholder="Password..."
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  style={{ width: '300px' }}
                 />
-                <i
-                  className={showPassword ? 'bi bi-eye' : 'bi bi-eye-slash'}
-                  style={{ fontSize: '2.2rem', cursor: 'pointer' }}
-                  onClick={() => setShowPassword(!showPassword)}
-                ></i>
-              </div>
             </div>
 
             <div className="submit">

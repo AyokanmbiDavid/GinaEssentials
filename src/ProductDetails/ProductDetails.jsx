@@ -8,7 +8,7 @@ const ProductDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const product = Data.find((item) => item.id == id);
-
+  const [theme, setTheme] = useState('')
   const [cart, setCart] = useState([]);
   const [selectedColor, setSelectedColor] = useState('white');
   const [quantity, setQuantity] = useState(1);
@@ -16,8 +16,15 @@ const ProductDetails = () => {
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem('GinaEssentialsCart')) || [];
     setCart(savedCart);
+    const findTheme = JSON.parse(localStorage.getItem('GinaTheme')) || theme
+    setTheme(findTheme)
   }, []);
 
+   setInterval(() => {
+      const findTheme = JSON.parse(localStorage.getItem('GinaTheme'))
+        setTheme(findTheme)
+   }, 200);
+    
   useEffect(() => {
     localStorage.setItem('GinaEssentialsCart', JSON.stringify(cart));
   }, [cart]);
@@ -61,7 +68,7 @@ const ProductDetails = () => {
   return (
     <>
       <Header />
-      <div className="details">
+      <div className={theme ? "details": "details dark"}>
         <div className="container my-4">
           <div className="head">
             <Link to="/search" className="back">
