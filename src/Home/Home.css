@@ -37,6 +37,11 @@
         }
     }
 
+    .home-top{
+        background: white;
+        border-radius: 10px;
+    }
+
     .carousel{
 
         img{
@@ -48,7 +53,6 @@
     }
 
     .search{
-        display: flex;
         justify-content: end;
         align-items: center;
         margin-top: 1rem;
@@ -79,12 +83,12 @@
     }
 
     .subscribe{
-        margin-top: 1rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        padding: 1rem;
+        background-color: white;
+        border-radius: 10px;
 
         h3{
             text-align: center;
@@ -136,6 +140,9 @@
     }
 
     .search{
+        display: flex !important;
+        background-color: white;
+        border-radius: 10px;
 
         input{
             border-radius: 10px;

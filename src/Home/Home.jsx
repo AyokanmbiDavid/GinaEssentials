@@ -10,27 +10,20 @@ import img5 from './IMG-20250713-WA0088.jpg'
 import { LatestData } from './LatestData'
 import { useNavigate } from 'react-router-dom'
 import Header from '../Header/Header'
+import Card from '../Card/Card'
 import Footer from '../Footer/Footer'
 
-const Home = (props) => {
+const Home = () => {
     const navigate = useNavigate()
     const LoginInfo = JSON.parse(localStorage.getItem('GinaEssentialsLogin')) || false
     const hasLogin = LoginInfo.login 
-    const [theme, setTheme] = useState('')
     const [latest, setLatest] = useState([])
 
     useEffect(() => {
-        const findTheme = JSON.parse(localStorage.getItem('GinaTheme'))
-        setTheme(findTheme)
         localStorage.setItem('GinaLatest', JSON.stringify(LatestData))
         const allLatest = JSON.parse(localStorage.getItem('GinaLatest')) || LatestData
         setLatest(allLatest)
     }, [])
-
-   setInterval(() => {
-      const findTheme = JSON.parse(localStorage.getItem('GinaTheme'))
-        setTheme(findTheme)
-   }, 200);
     
     const Logout = () => {
         const Login = {
@@ -44,10 +37,11 @@ const Home = (props) => {
   return (
     <>
     <Header/>
-        <div className={theme ? "home" :"home dark"}>
+        <div className="home">
             <div className="container">
                <Suspense>
-               <div className="login-info">
+               <div className="home-top p-2 my-3">
+                <div className="login-info">
                     {!hasLogin && <>
                         <h3>Seems you have not logged in?</h3>
                     <div className="but">
@@ -98,9 +92,10 @@ const Home = (props) => {
                     </button>
                     </div>
                 </div>
+               </div>
 
                 {/* search */}
-                <Link to={'/search'} className="search">
+                <Link to={'/search'} className="search p-2">
                     <input type="text" placeholder='Type here to search..' />
                 </Link>
 
@@ -110,25 +105,14 @@ const Home = (props) => {
                    <div className="grid">
                         {latest.map((item) => (
                             <>
-                                  <Link to={`/details/${item.id}`} className="card">
-                                            <img src={item.img} alt="" loading="lazy" />
-                                
-                                            <h1 className="title">{item.title}</h1>
-                                
-                                            <div className="prices">
-                                               <h1 className="price">${item.price}</h1>
-                                               <h3 className="formerPrice">${item.formerPrice}</h3> 
-                                            </div>
-                                
-                                                <button className="btn">Add To Cart</button>
-                                     </Link>
+                                <Card title={item.title} formerPrice={item.formerPrice} id={item.id} img={item.img} price={item.price} />
                             </>
                         ))}
                     </div>
                 </div>
 
                 {/* suscribe */}
-                <div className="subscribe">
+                <div className="subscribe p-2 my-3">
                     <h3>Suscribe to Gina Essentials for latest update</h3>
                     <input type="email" placeholder='Email..' />
                     <button>Submit</button>

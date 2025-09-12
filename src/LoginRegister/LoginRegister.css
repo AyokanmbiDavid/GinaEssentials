@@ -29,8 +29,7 @@
     input{
         width: min(400px, 98%);
         padding: 1rem 2rem;
-        background-color: #c5f8ddfd;
-        border: none;
+        border: 1px solid #19814a;
     }
 
     .submit{
@@ -42,15 +41,10 @@
             font-weight: 700;
             letter-spacing: 1.07px;
             font-size: 1rem;
-            border: 1px solid #19814a;
+            background-color:  #19814a;
             border-radius: 10px;
-            color: #19814a;
-            width: min(300px, 98%);
-        }
-
-        .btn:hover{
-            background-color: #19814a;
             color: white;
+            width: min(300px, 98%);
         }
     }
 

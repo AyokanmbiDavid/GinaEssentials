@@ -8,14 +8,11 @@ const Register = (props) => {
     const [password, setPassword] = useState('')
     const [userData, setUserData] = useState([])
     const [phoneNumber, setPhoneNumber] = useState(true)
-    const [theme, setTheme] = useState('')
     const navigate = useNavigate()
 
     useEffect(() => {
         const UserData = JSON.parse(localStorage.getItem('GinaEssentials')) || []
         setUserData(UserData)
-        const findTheme = JSON.parse(localStorage.getItem('GinaTheme')) || theme
-        setTheme(findTheme)
     }, [])
     
 
@@ -53,7 +50,7 @@ const Register = (props) => {
 
   return (
     <>
-        <div className={theme ? "register" : "register dark"}>
+        <div className="register" >
             <div className="container">
                 <div className="register-body">
                 <div className="head">

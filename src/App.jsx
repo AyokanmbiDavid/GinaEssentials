@@ -13,7 +13,8 @@ import ProtectedRoute from './ProtectedRoute';
 function App() {
   return (
     <>
-      <Suspense>
+      <div className="app">
+        <Suspense>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
@@ -55,6 +56,7 @@ function App() {
           />
         </Routes>
       </Suspense>
+      </div>
     </>
   );
 }

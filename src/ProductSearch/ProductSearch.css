@@ -14,6 +14,10 @@
            }
         }
 
+        .top{
+            background-color: white;
+            border-radius: 10px;
+        }
 
         .error{
             text-align: center;
@@ -24,7 +28,7 @@
         .category{
             display: flex;
             justify-content: space-evenly;
-            margin: 1rem 0;
+            margin: 0.5rem 0;
 
             .cat{
                 padding: 1rem 2rem;

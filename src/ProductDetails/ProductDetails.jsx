@@ -8,7 +8,6 @@ const ProductDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const product = Data.find((item) => item.id == id);
-  const [theme, setTheme] = useState('')
   const [cart, setCart] = useState([]);
   const [selectedColor, setSelectedColor] = useState('white');
   const [quantity, setQuantity] = useState(1);
@@ -16,15 +15,7 @@ const ProductDetails = () => {
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem('GinaEssentialsCart')) || [];
     setCart(savedCart);
-    const findTheme = JSON.parse(localStorage.getItem('GinaTheme')) || theme
-    setTheme(findTheme)
   }, []);
-
-   setInterval(() => {
-      const findTheme = JSON.parse(localStorage.getItem('GinaTheme'))
-        setTheme(findTheme)
-   }, 200);
-    
   useEffect(() => {
     localStorage.setItem('GinaEssentialsCart', JSON.stringify(cart));
   }, [cart]);
@@ -68,9 +59,9 @@ const ProductDetails = () => {
   return (
     <>
       <Header />
-      <div className={theme ? "details": "details dark"}>
-        <div className="container my-4">
-          <div className="head">
+      <div className="details">
+        <div className="container my-1">
+          <div className="head p-3 px-2 bg-light">
             <Link to="/search" className="back">
               <i className="bi bi-arrow-left"></i>
             </Link>
@@ -89,10 +80,10 @@ const ProductDetails = () => {
               />
             </div>
 
-            <div className="right">
+            <div className="right p-1 bg-light">
               <h1 className="title">{product.title}</h1>
               <h1 className="price">
-                <span className="text-warning price">${product.price}</span>{' '}
+                <span className="text-warning price">${product.price}</span>
                 <span className="former">${product.formerPrice}</span>
               </h1>
 

@@ -6,22 +6,13 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const [theme, setTheme] = useState('')
-
   // Redirect if already logged in
   useEffect(() => {
     const loginStatus = JSON.parse(localStorage.getItem('GinaEssentialsLogin'));
-        const findTheme = JSON.parse(localStorage.getItem('GinaTheme')) || theme
-        setTheme(findTheme)
     if (loginStatus?.login === true) {
       navigate('/home');
     }
   }, [navigate]);
-
-   setInterval(() => {
-      const findTheme = JSON.parse(localStorage.getItem('GinaTheme'))
-        setTheme(findTheme)
-   }, 200);
     
   const handleLogin = () => {
     if (!email || !password) {
@@ -44,7 +35,7 @@ const Login = () => {
   };
 
   return (
-    <div className={theme ? "login" : "login dark"}>
+    <div className="login">
       <div className="container">
         <div className="login-body">
           <div className="head">

@@ -8,14 +8,8 @@ const Header = () => {
 
     useEffect(() => {
         const cart = JSON.parse(localStorage.getItem('GinaEssentialsCart')) || []
-        const findTheme = JSON.parse(localStorage.getItem('GinaTheme')) || theme
-        setTheme(findTheme)
         setallCart(cart)
     }, [])
-
-    useEffect(() => {
-      localStorage.setItem('GinaTheme', JSON.stringify(theme))
-    }, [theme])
     
     setInterval(() => {
         const cart = JSON.parse(localStorage.getItem('GinaEssentialsCart')) || []
@@ -24,17 +18,14 @@ const Header = () => {
     
   return (
     <>
-        <nav className={theme ? "navbar navbar-expand-lg fixed-top": "navbar navbar-expand-lg fixed-top dark"}>
+        <nav className= "navbar navbar-expand-lg fixed-top">
         <Suspense>
-        <div className={theme == true || theme == "true" ? "container py-2": "container py-2 dark"}>
+        <div className= "container py-2">
             <Link to={'/home'} className="navbar-brand fw-bold">GinaFashionWorld <span className="text-warning mx-2"><i className="bi bi-bag"></i></span></Link>
              <Link to={'/search'} className="search">
                  <input type="text" placeholder='Search..' />
              </Link>
             <div className="mobile">
-            <div className="nav-item text-center ms-auto mobile-sun mx-3" onClick={() => setTheme(!theme)}>
-                {theme ? <i className='bi bi-sun'></i> : <i className='bi bi-moon'></i>}           
-            </div>
             <div className="nav-item text-center ms-auto mobile-cart mx-3">
                     <Link className="nav-link" to="/cart"><i className="bi bi-cart text-warning"></i> <span className="text-warning">{allCart.length}</span></Link>
             </div>
@@ -51,9 +42,6 @@ const Header = () => {
                     <li className="nav-item text-center">
                         <Link className="nav-link" to="/cart"> <i className="bi bi-cart text-warning"></i> <span className="text-warning">({allCart.length})</span></Link>
                     </li>
-                     <li className="nav-item text-center sun" onClick={() => setTheme(!theme)}>
-                        {theme ? <i className='bi bi-sun'></i> : <i className='bi bi-moon'></i>}  
-                     </li>
                 </ul>
             </div>
         </div>

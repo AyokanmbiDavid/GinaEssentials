@@ -13,17 +13,10 @@ const ProductSearch = () => {
     const [theme, setTheme] = useState('')
 
     useEffect(() => {
-        const findTheme = JSON.parse(localStorage.getItem('GinaTheme'))
-        setTheme(findTheme)
         localStorage.setItem('GinaData', JSON.stringify(Data))
         const alldata = JSON.parse(localStorage.getItem('GinaData')) || Data
         setData(alldata)
     }, [])
-    
-      setInterval(() => {
-      const findTheme = JSON.parse(localStorage.getItem('GinaTheme'))
-        setTheme(findTheme)
-   }, 200);
 
     const chooseCategory = (cat) => {
         if(category == cat){
@@ -37,10 +30,11 @@ const ProductSearch = () => {
   return (
     <>
     <Header/>
-        <div className={theme ? "searchit" : "searchit dark"}>
+        <div className="searchit">
             <div className="container">
                 {/* head */}
-                <div className="head">
+               <div className="top p-2 mb-3">
+                 <div className="head">
                     <input type="text" placeholder='type to search..' onChange={(e) => setSearchValue(e.target.value)}/>
                 </div>
 
@@ -50,6 +44,7 @@ const ProductSearch = () => {
                     <div className={category == 'women' ? 'cate cat' : 'cat'} onClick={() => chooseCategory('women')}>Women</div>
                     <div className={category == 'kids' ? 'cate cat' : 'cat'} onClick={() => chooseCategory('kids')}>Kids</div>
                 </div>
+               </div>
 
                 {/* grid */}
                 <div className="grid">

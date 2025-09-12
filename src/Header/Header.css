@@ -7,7 +7,7 @@
         background-color: white;
         border-radius: 100px;
         margin-top: 1rem;
-        box-shadow: 0 2px 4px #ececec;
+        box-shadow: 0 4px 4px var(--gray-300);
     }
 
     .search{
@@ -146,16 +146,4 @@
             }
         }
     }
-
-    .dark{
-    background-color: var(--dark) !important;
-
-    input{
-        background-color: var(--dark-bg);
-    }
-
-    li, .nav-link{
-        color: white !important;
-    }
-}
 }

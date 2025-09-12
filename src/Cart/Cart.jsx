@@ -7,13 +7,10 @@ import Header from '../Header/Header'
 const Cart = () => {
     const [cart, setCart] = useState([])
     const [totalPrice, setTotalPrice] = useState('9')
-    const [theme, setTheme] = useState('')
 
     useEffect(() => {
         const cart = JSON.parse(localStorage.getItem('GinaEssentialsCart')) || []
         setCart(cart)
-        const findTheme = JSON.parse(localStorage.getItem('GinaTheme')) || theme
-        setTheme(findTheme)
 
         for (let i = 0; i < cart.length; i++) {
            const Price = (cart[i].price).parseInt
@@ -23,11 +20,6 @@ const Cart = () => {
         console.log(totalPrice);
         
     }, [])
-
-     setInterval(() => {
-      const findTheme = JSON.parse(localStorage.getItem('GinaTheme'))
-        setTheme(findTheme)
-   }, 200);
 
     useEffect(() => {
         localStorage.setItem('GinaEssentialsCart', JSON.stringify(cart))
@@ -43,10 +35,11 @@ const Cart = () => {
     <>
     <Header/>
        <Suspense>
-       <div className={theme? "cart": "cart dark"}>
+       <div className= "cart">
             <div className="container">
                 {/* head */}
-                <div className="head">
+                <div className="cart-top p-2 my-3">
+                    <div className="head">
                    <Link to={'/search'}> <i className="bi bi-arrow-left"></i></Link>
                     <h1>Cart ({cart.length})</h1>
                 </div>
@@ -54,6 +47,7 @@ const Cart = () => {
 
                 <div className="clear">
                     <button onClick={() => setCart([])}>clear all</button>
+                </div>
                 </div>
 
                 {/* grid */}
@@ -80,7 +74,7 @@ const Cart = () => {
                 </div>
 
                 {/* checkout */}
-                {cart.length != 0  && <div className="checkout">
+                {cart.length != 0  && <div className="checkout my-3">
                     <button className="btn">Checkout <i className="bi bi-truck"></i></button>
                 </div>}
             </div>

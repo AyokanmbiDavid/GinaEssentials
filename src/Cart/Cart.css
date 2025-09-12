@@ -46,6 +46,11 @@
         }
     }
 
+    .cart-top{
+        background-color: white;
+        border-radius: 10px;
+    }
+
     .grid{
         grid-template-columns: 1fr !important;
 
@@ -58,7 +63,6 @@
             border-radius: 20px;
             width: min(1000px, 90%);
             margin: auto;
-            background-color: #edfbff;
             padding: 0.4rem 0;
             transition: 0.3s;
 
@@ -133,7 +137,8 @@
         }
 
         .card:hover{
-            scale: 1.02;
+            scale: 0.97;
+            background-color: var(--background);
         }
     }
 
